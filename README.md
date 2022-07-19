@@ -1,12 +1,10 @@
-# Orb Template
+# Split Config Orb
 
 [![CircleCI Build Status](https://circleci.com/gh/bufferings/orb-split-config.svg?style=shield "CircleCI Build Status")](https://circleci.com/gh/bufferings/orb-split-config) [![CircleCI Orb Version](https://badges.circleci.com/orbs/bufferings/split-config.svg)](https://circleci.com/orbs/registry/orb/bufferings/orb-split-config) [![GitHub License](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://raw.githubusercontent.com/bufferings/orb-split-config/master/LICENSE) [![CircleCI Community](https://img.shields.io/badge/community-CircleCI%20Discuss-343434.svg)](https://discuss.circleci.com/c/ecosystem/orbs)
 
-A project template for Orbs.
-
-This repository is designed to be automatically ingested and modified by the CircleCI CLI's `orb init` command.
-
-_**Edit this area to include a custom title and description.**_
+With this Orb, you can split your config.yml into multiple files.
+Then, when CircleCI starts, you can merge these split files before executing workflows.
+This Orb uses CUE https://cuelang.org/ to merge the configuration files.
 
 ---
 
