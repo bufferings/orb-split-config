@@ -1,7 +1,7 @@
 version: 2.1
 
 description: >
-  Split config
+  This is an hello world orb to check how I can deploy it on production.
 
 display:
   home_url: "https://github.com/bufferings/orb-split-config"
