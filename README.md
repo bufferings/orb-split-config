@@ -1,6 +1,5 @@
 # Orb Template
 
-
 [![CircleCI Build Status](https://circleci.com/gh/bufferings/orb-split-config.svg?style=shield "CircleCI Build Status")](https://circleci.com/gh/bufferings/orb-split-config) [![CircleCI Orb Version](https://badges.circleci.com/orbs/bufferings/orb-split-config.svg)](https://circleci.com/orbs/registry/orb/bufferings/orb-split-config) [![GitHub License](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://raw.githubusercontent.com/bufferings/orb-split-config/master/LICENSE) [![CircleCI Community](https://img.shields.io/badge/community-CircleCI%20Discuss-343434.svg)](https://discuss.circleci.com/c/ecosystem/orbs)
 
 
@@ -37,5 +36,3 @@ We welcome [issues](https://github.com/bufferings/orb-split-config/issues) to an
 5. Now ensure the version tag selected is semantically accurate based on the changes included.
 6. Click _"Publish Release"_.
     - This will push a new tag and trigger your publishing pipeline on CircleCI.
-
-Modify check2
