@@ -38,4 +38,4 @@ We welcome [issues](https://github.com/bufferings/orb-split-config/issues) to an
 6. Click _"Publish Release"_.
     - This will push a new tag and trigger your publishing pipeline on CircleCI.
 
-Modify check
+Modify check2
