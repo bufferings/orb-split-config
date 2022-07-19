@@ -1,6 +1,6 @@
 version: 2.1
 orbs:
-  orb-split-config: bufferings/split-config@dev:<<pipeline.git.revision>>
+  split-config: bufferings/split-config@dev:<<pipeline.git.revision>>
   orb-tools: circleci/orb-tools@11.1
 
 filters: &filters
