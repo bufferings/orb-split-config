@@ -1,6 +1,10 @@
 #!/bin/bash
 
+echo "Config list ==="
+
 cat "${PARAM_CONFIG_LIST_PATH}"
+
+echo "Generated YAML ==="
 
 cat "${PARAM_CONFIG_LIST_PATH}" \
 | awk '{printf "\"%s\" ", $0}' \
