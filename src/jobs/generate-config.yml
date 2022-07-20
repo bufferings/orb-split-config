@@ -27,10 +27,10 @@ parameters:
     description: >
       A file path for the generated config file.
 
-  continuation:
+  continuation?:
     type: boolean
     default: true
-    deescription: >
+    description: >
       Whether to continue the execution with the generated config or not.
   continuation-circleci_domain:
     type: string
@@ -64,7 +64,7 @@ steps:
       config-list-path: << parameters.config-list-path >>
       generated-config-path: << parameters.generated-config-path >>
   - when:
-      condition: << parameters.continuation >>
+      condition: << parameters.continuation? >>
       steps:
         - continuation/continue:
             configuration_path: << parameters.generated-config-path >>
