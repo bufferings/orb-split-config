@@ -27,6 +27,25 @@ parameters:
     description: >
       A file path for the generated config file.
 
+  continuation?:
+    type: boolean
+    default: true
+    deescription: >
+      Whether to continue the execution with the generated config or not.
+  continuation-circleci_domain:
+    type: string
+    default: circleci.com
+    description: >
+      The domain of the CircleCI installation - defaults to circleci.com.
+      (Only necessary for CircleCI Server users)
+  continuation-parameters:
+    type: string
+    default: "{}"
+    description: >
+      The parameters used for the pipeline. This can either be a JSON object containing
+      parameters or a path to a file containing a JSON object with parameters
+
+
 steps:
   - checkout
   - when:
@@ -44,3 +63,8 @@ steps:
   - generate-config:
       config-list-path: << parameters.config-list-path >>
       generated-config-path: << parameters.generated-config-path >>
+  - when:
+      condition: << parameters.continuation? >>
+      steps:
+        - continuation/continue:
+            configuration_path: << parameters.generated-config-path >>
