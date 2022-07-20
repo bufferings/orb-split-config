@@ -1,0 +1,23 @@
+description: >
+  Find configs by regex and append the result to the config list.
+
+parameters:
+  config-list-path:
+    type: string
+    default: /tmp/config-list
+    description: >
+      A file path to append config paths.
+      Each path in this file should be relateive to the working directory.
+  find-config-regex:
+    type: string
+    default: ""
+    description: >
+      Regex to find configs from the working directory.
+
+steps:
+  - run:
+      environment:
+        PARAM_CONFIG_LIST_PATH: <<parameters.config-list-path>>
+        PARAM_FIND_CONFIG_REGEX: <<parameters.find-config-regex>>
+      name: Append find result
+      command: <<include(scripts/append-find-result.sh)>>

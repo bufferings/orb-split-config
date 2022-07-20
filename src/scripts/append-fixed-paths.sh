@@ -1,0 +1,5 @@
+#!/bin/bash
+
+echo "${PARAM_FIND_CONFIG_REGEX}" >> "${PARAM_CONFIG_LIST_PATH}"
+
+cat "${PARAM_CONFIG_LIST_PATH}"
