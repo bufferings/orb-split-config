@@ -1,0 +1,24 @@
+description: >
+  Append fixed config paths to the config list.
+
+parameters:
+  config-list-path:
+    type: string
+    default: /tmp/config-list
+    description: >
+      A file path to append config paths.
+      Each path in this file should be relateive to the working directory.
+  fixed-config-paths:
+    type: string
+    default: ""
+    description: >
+      Multiline string of fixed config paths to append. One path for each line.
+      Each path should be relateive to the working directory.
+
+steps:
+  - run:
+      environment:
+        PARAM_CONFIG_LIST_PATH: <<parameters.config-list-path>>
+        PARAM_FIXED_CONFIG_PATH: <<parameters.fixed-config-paths>>
+      name: Append fixed paths
+      command: <<include(scripts/append-fixed-paths.sh)>>
