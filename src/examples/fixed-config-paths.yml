@@ -1,0 +1,21 @@
+description: >
+  You can use fixed-config-paths parameter to specify the split configs.
+
+  Please check README in the GitHub repository for more details:
+  https://github.com/bufferings/orb-split-config
+
+usage:
+  version: 2.1
+  setup: true
+  orbs:
+    # Please specify the latest version
+    split-config: bufferings/split-config@1.2.3
+  workflows:
+    generate-config:
+      jobs:
+        - split-config/generate-config:
+            fixed-config-paths: |
+              ./common/.circleci/config.yml
+              ./service1/.circleci/config.yml
+              ./service2/.circleci/config.yml
+              ./service3/.circleci/config.yml

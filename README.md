@@ -233,8 +233,65 @@ YAML anchors and aliases need to be in the same YAML file. When CUE import YAML,
 
 ## (Advanced) I want to use CUE to write CircleCI config
 
-```yaml
+This Orb just pass the specified files to CUE, therefore, you can use CUE files if you want.
+If you use CUE format, you can use the power of CUE.
+
+For example, you can write CircleCI build config with CUE: 
+
+```cue
+package config
+
+version: "2.1"
+
+jobs: {
+	"service1-say-hello": {
+		docker: [
+			{image: "cimg/base:stable"},
+		]
+		steps: [
+			"checkout",
+			{
+				run: {
+					name:    "Say hello"
+					command: "echo Hello, World!1"
+				}
+			},
+		]
+	}
+}
+
+workflows: {
+	"service1-say-hello-workflow":
+	{
+		jobs: [
+			"common-say-hello",
+			"service1-say-hello",
+		]
+	}
+}
 ```
+
+And pass this file to the Orb:
+
+```yaml
+version: 2.1
+
+setup: true
+
+orbs:
+  # Please specify the latest version
+  path-filtering: circleci/path-filtering@1.2.3
+
+workflows:
+  generate-config:
+    jobs:
+      - split-config/generate-config:
+          find-config-regex: .*/\.circleci/config\.cue
+```
+
+Then it is converted to YAML in the end and CircleCI starts with the YAML file.
+
+Working example: https://github.com/bufferings/orb-split-config-example7
 
 ---
 
