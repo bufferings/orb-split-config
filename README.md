@@ -187,8 +187,9 @@ version: 2.1
 setup: true
 
 orbs:
-  split-config: bufferings/split-config@0.0.7
-  path-filtering: circleci/path-filtering@0.1.3
+  # Please specify the latest version
+  split-config: bufferings/split-config@1.2.3
+  path-filtering: circleci/path-filtering@1.2.3
 
 workflows:
   generate-config:
@@ -196,6 +197,7 @@ workflows:
       - split-config/generate-config:
           find-config-regex: .*/\.circleci/.*\.yml
           generated-config-path: /tmp/generated_config.yml
+          continuation: false
           post-steps:
             - persist_to_workspace:
                 root: /tmp
