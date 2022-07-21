@@ -1,13 +1,46 @@
 description: >
-  Sample example description.
-# Provide a use-case based example for using this orb.
-# Everything in the `usage` section will be displayed in the orb registry.
-# Comments are not retained.
-usage:
-  version: 2.1
-  orbs:
-    split-config: bufferings/split-config@1.2.3
-  workflows:
-    use-my-orb:
-      jobs:
-        - split-config/greet
+  Here are a few examples. For more details, please check the README in the GitHub repository:
+  https://github.com/bufferings/orb-split-config
+
+find-config-regex:
+  usage:
+    version: 2.1
+    setup: true
+    orbs:
+      # Please specify the latest version
+      split-config: bufferings/split-config@1.2.3
+    workflows:
+      generate-config:
+        jobs:
+          - split-config/generate-config:
+              find-config-regex: .*/\.circleci/config\.yml
+
+fixed-config-paths:
+  usage:
+    version: 2.1
+    setup: true
+    orbs:
+      # Please specify the latest version
+      split-config: bufferings/split-config@1.2.3
+    workflows:
+      generate-config:
+        jobs:
+          - split-config/generate-config:
+              fixed-config-paths: |
+                ./common/.circleci/config.yml
+                ./service1/.circleci/config.yml
+                ./service2/.circleci/config.yml
+                ./service3/.circleci/config.yml
+
+config-list-path:
+  usage:
+    version: 2.1
+    setup: true
+    orbs:
+      # Please specify the latest version
+      split-config: bufferings/split-config@1.2.3
+    workflows:
+      generate-config:
+        jobs:
+          - split-config/generate-config:
+              config-list-path: .circleci/config-list
