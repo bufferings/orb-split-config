@@ -1,0 +1,17 @@
+description: >
+  You can write the split config paths in a file and set it to the config-list-path parameter.
+
+  Please check README in the GitHub repository for more details:
+  https://github.com/bufferings/orb-split-config
+
+usage:
+  version: 2.1
+  setup: true
+  orbs:
+    # Please specify the latest version
+    split-config: bufferings/split-config@1.2.3
+  workflows:
+    generate-config:
+      jobs:
+        - split-config/generate-config:
+            config-list-path: .circleci/config-list
