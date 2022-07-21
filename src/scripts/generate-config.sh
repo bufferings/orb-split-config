@@ -5,7 +5,6 @@ echo "Config list ==="
 cat "${PARAM_CONFIG_LIST_PATH}"
 
 echo
-
 echo "Generated YAML ==="
 
 cat "${PARAM_CONFIG_LIST_PATH}" \

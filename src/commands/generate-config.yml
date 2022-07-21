@@ -7,7 +7,7 @@ parameters:
     default: /tmp/config-list
     description: >
       A file path to append config paths.
-      Each path in this file should be relateive to the working directory.
+      Each path in this file should be relative to the working directory.
   generated-config-path:
     type: string
     default: /tmp/generated-config.yml
