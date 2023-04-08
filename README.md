@@ -215,6 +215,35 @@ workflows:
 
 Working example: https://github.com/bufferings/orb-split-config-example6
 
+### I want to pass parameters to the config
+
+You can pass parameters to the generated config file with `continuation-parameters`.
+
+```yaml
+version: 2.1
+
+setup: true
+
+orbs:
+  split-config: bufferings/split-config@0.1.0
+
+workflows:
+  generate-config:
+    jobs:
+      - split-config/generate-config:
+          find-config-regex: .*/\.circleci/config\.yml
+          continuation-parameters: |
+            {
+              "service1-my-name": "Ken",
+              "service2-my-name": "John"
+            }
+```
+
+Working example: https://github.com/bufferings/orb-split-config-example8
+
+> **Note**
+> If any of the child CircleCI config files have parameters defined, then they must also be declared in the setup workflow. Otherwise, a parametrised pipeline run will fail since CircleCI won't be able to recognise the parameters sent.
+
 ## How it works
 
 The Split Config Orb uses CUE to merge the YAML files.
@@ -236,7 +265,7 @@ YAML anchors and aliases need to be in the same YAML file. When CUE import YAML,
 This Orb just pass the specified files to CUE, therefore, you can use CUE files if you want.
 If you use CUE format, you can use the power of CUE.
 
-For example, you can write CircleCI build config with CUE: 
+For example, you can write CircleCI build config with CUE:
 
 ```cue
 package config
